@@ -11,33 +11,27 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int m = in.nextInt();
-        int c = m;
+
         ArrayList<Integer> list = new ArrayList<Integer>();
         List<Integer> result = new ArrayList<>();
+        int num = 0;
+        for (int i = 0; i < n; i++) {
+            num++;
+            list.add(num);
+
+        }
         int count=0;
-        int countm=0;
         result.add(1);
         while (true) {
             count++;
-            int num = 0;
-            for (int i = 0; i < n; i++) {
-                num++;
-                list.add(num);
 
-            }
-            if(list.get(c-countm)==1 && c%count==0){
+            if(list.get(count)==1 && count%(m-1)==0){
                 break;
             }
-            if(count==m && list.get(count)!=1){
+            if(count==m-1 && list.get(count)!=1){
                 result.add(list.get(count));
-                countm++;
-                c+=m;
+                count=-1;
             }
-
-
-
-
-
         }
         for (int i = 0; i < result.size();i++){
             System.out.print(result.get(i));
